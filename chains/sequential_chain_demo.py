@@ -23,7 +23,7 @@ speech_prompt = PromptTemplate(
 )
 
 first_chain = title_prompt | llm | StrOutputParser() | (lambda title: (st.write(title),title)[1])
-second_chain = speech_prompt | llm
+second_chain = speech_prompt | llm | JsonOutputParser()
 final_chain = first_chain | (lambda title:{"title": title,"emotion": emotion}) | second_chain
 
 st.title("Speech Generator")
