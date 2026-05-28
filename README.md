@@ -174,11 +174,3 @@ See `requirements.txt` for complete dependency list. Key dependencies:
 ## 🔑 API Keys Required
 
 - **OpenAI API Key** (required for most demos)
-
-## 📄 License
-
-This project is for educational purposes.
-
----
-
-**Note:** This is a learning repository. Feel free to explore, modify, and use the code examples for your own projects.
