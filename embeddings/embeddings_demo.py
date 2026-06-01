@@ -1,9 +1,12 @@
 import os
-from langchain_openai import OpenAIEmbeddings
+# The new, modern way to import Ollama embeddings:
+from langchain_ollama import OllamaEmbeddings
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-llm=OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+# Ollama embeddings (local)
+llm = OllamaEmbeddings(model="nomic-embed-text")
 
-text = input("Enter the text")
+text = input("Enter the text: ")
 response = llm.embed_query(text)
+
 print(response)
+print(len(response))

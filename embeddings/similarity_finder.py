@@ -1,12 +1,15 @@
 import os
-from langchain_openai import OpenAIEmbeddings
+# from langchain_openai import OpenAIEmbeddings
 import numpy as np
+from langchain_ollama import OllamaEmbeddings
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-llm=OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+# OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# llm=OpenAIEmbeddings(api_key=OPENAI_API_KEY)
 
-text1 = input("Enter the text1")
-text2 = input("Enter the text2")
+llm = OllamaEmbeddings(model="nomic-embed-text")
+
+text1 = input("Enter the text1: ")
+text2 = input("Enter the text2: ")
 response1 = llm.embed_query(text1)
 response2 = llm.embed_query(text2)
 
