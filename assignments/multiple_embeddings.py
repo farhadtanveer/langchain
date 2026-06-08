@@ -14,4 +14,4 @@ response = embeddings.embed_documents(
 )
 
 print(len(response))
-print(response[0])
+print(response[1])
