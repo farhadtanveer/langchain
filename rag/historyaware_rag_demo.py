@@ -1,4 +1,5 @@
 import os
+from langchain_ollama import ChatOllama, OllamaEmbeddings
 import streamlit as st
 
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
@@ -16,14 +17,17 @@ from langchain_classic.chains.combine_documents import create_stuff_documents_ch
 from langchain_community.chat_message_histories import StreamlitChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
-
 # -----------------------------
 # OpenAI setup
 # -----------------------------
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
-llm = ChatOpenAI(model="gpt-4o", api_key=OPENAI_API_KEY)
+# embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+# llm = ChatOpenAI(model="gpt-4o", api_key=OPENAI_API_KEY)
+
+
+llm = ChatOllama(model="llama3.1:8b")
+embeddings = OllamaEmbeddings(model="nomic-embed-text:latest")
 
 
 # -----------------------------
