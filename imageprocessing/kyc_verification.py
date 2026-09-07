@@ -1,3 +1,4 @@
+from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 import base64
@@ -7,8 +8,9 @@ import streamlit as st
 def encode_image(image_file):
     return base64.b64encode(image_file.read()).decode()
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-llm = ChatOpenAI(model="gpt-4o", api_key=OPENAI_API_KEY)
+# OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# llm = ChatOpenAI(model="gpt-4o", api_key=OPENAI_API_KEY)
+llm = ChatOllama(model="llava:latest")
 
 prompt = ChatPromptTemplate.from_messages(
     [
